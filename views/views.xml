@@ -1,0 +1,140 @@
+<odoo>
+
+    <data>
+
+
+        <!-- COLEGIO -->
+
+
+        <record model="ir.actions.act_window" id="action_colegio">
+            <field name="name">colegio</field>
+            <field name="res_model">colegio.colegio</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model='ir.ui.view' id='colegio_tree_view'>
+            <field name="name">colegio.tree</field>
+            <field name="model">colegio.colegio</field>
+            <field name="arch" type="xml">
+                <tree string="Colegio Tree">
+                    <field name="nombreEmpresa"/>
+                    <field name="name"/>
+                    <field name="direccion"/>
+                    <field name="clase_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='colegio_form_view'>
+            <field name="name">colegio.form</field>
+            <field name="model">colegio.colegio</field>
+            <field name="arch" type="xml">
+                <form string="Colegio Form">
+                    <group>
+                        <field name="nombreEmpresa"/>
+                        <field name="name"/>
+                        <field name="direccion"/>
+                        <field name="clase_ids"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- CLASE -->
+
+
+        <record model="ir.actions.act_window" id="action_clase">
+            <field name="name">clase</field>
+            <field name="res_model">colegio.clase</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model='ir.ui.view' id='clase_tree_view'>
+            <field name="name">clase.tree</field>
+            <field name="model">colegio.clase</field>
+            <field name="arch" type="xml">
+                <tree string="Clase Tree">
+                    <field name="name"/>
+                    <field name="asignatura"/>
+                    <field name="profesor"/>
+                    <field name="colegio_id"/>
+                    <field name="estudiante_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='clase_form_view'>
+            <field name="name">clase.form</field>
+            <field name="model">colegio.clase</field>
+            <field name="arch" type="xml">
+                <form string="Clase Form">
+                    <header>
+                        <button string="Generate name" type="object" name="generate_record_name" class="oe_highlight"/>
+                    </header>
+                    <group>
+                        <field name="name"/>
+                        <field name="asignatura"/>
+                        <field name="profesor"/>
+                        <field name="colegio_id"/>
+                        <field name="estudiante_ids"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- ESTUDIANTE -->
+
+
+        <record model="ir.actions.act_window" id="action_estudiante">
+            <field name="name">estudiante</field>
+            <field name="res_model">colegio.estudiante</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model='ir.ui.view' id='estudiante_tree_view'>
+            <field name="name">estudiante.tree</field>
+            <field name="model">colegio.estudiante</field>
+            <field name="arch" type="xml">
+                <tree string="Clase Tree">
+                    <field name="name"/>
+                    <field name="apellidos"/>
+                    <field name="notas"/>
+                    <field name="clase_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='estudiante_form_view'>
+            <field name="name">estudiante.form</field>
+            <field name="model">colegio.estudiante</field>
+            <field name="arch" type="xml">
+                <form string="Clase Form">
+                    <group>
+                        <field name="name"/>
+                        <field name="apellidos"/>
+                        <field name="notas"/>
+                        <field name="clase_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Top menu item -->
+
+        <menuitem name="Colegio1" id="menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Menu" id="menu" parent="menu_root"/>
+
+        <!-- actions -->
+
+        <menuitem name="colegio" id="menu_colegio" parent="menu" action="action_colegio"/>
+        <menuitem name="clase" id="menu_clase" parent="menu" action="action_clase"/>
+        <menuitem name="estudiante" id="menu_estudiante" parent="menu" action="action_estudiante"/>
+
+    </data>
+
+</odoo>
